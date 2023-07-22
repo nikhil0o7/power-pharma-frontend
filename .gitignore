@@ -1,0 +1,8 @@
+node_modules
+dist
+.env.local
+build
+rpm_dist
+stats.html
+src/changelog.ts
+src/issues.ts
