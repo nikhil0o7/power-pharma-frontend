@@ -1,6 +1,6 @@
-# Vite React, Typescript Starter Project
+# Vite React, Typescript Project
 
-This is a starter project for building a React application with Vite and Typescript.
+This is a  project for building a React application with Vite and Typescript.
 
 ## Files
 
