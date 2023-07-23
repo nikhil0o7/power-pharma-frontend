@@ -20,9 +20,9 @@
       "@typings": ["./src/types/index.ts"],
       "@queries": ["./src/queries/index.ts"],
       "@utils": ["./src/utils/index.ts"],
-      "@db": ["./src/components/Provider/index.ts"],
+      "@db": ["src/pages/Provider/index.ts"],
       "@pages": ["./src/pages"],
-      "@components": ["./src/components/index.ts"]
+      "@components": ["src/pages/index.ts"]
     }
   },
   "include": ["src"],
