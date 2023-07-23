@@ -51,9 +51,6 @@ export default function Header() {
             <Typography variant="body1">About</Typography>
           </IconButton>
           <IconButton color="inherit">
-            <Typography variant="body1">Enquiry</Typography>
-          </IconButton>
-          <IconButton color="inherit">
             <Typography variant="body1">Categories</Typography>
           </IconButton>
           <IconButton color="inherit">
@@ -81,7 +78,6 @@ export default function Header() {
         }}
       >
         <MenuItem onClick={handleMenuClose}>About</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Enquiry</MenuItem>
         <MenuItem onClick={handleMenuClose}>Categories</MenuItem>
         <MenuItem onClick={handleMenuClose}>Contact Us</MenuItem>
       </Menu>
