@@ -1,29 +1,29 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Components/Header';
-import Welcome from './Components/Welcome';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import CssBaseline from "@mui/material/CssBaseline";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Header from "./Components/Header";
+import Welcome from "./Components/Welcome";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -47,27 +47,45 @@ export default function Home() {
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                  }}
                 >
                   <CardMedia
                     component="div"
                     sx={{
                       // 16:9
-                      pt: '56.25%',
+                      pt: "56.25%",
                     }}
                     image="https://source.unsplash.com/random?wallpapers"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      sx={{
+                        fontWeight: "bold",
+                        fontFamily: "Roboto, sans-serif",
+                      }}
+                    >
                       Heading
                     </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
+                    <Typography
+                      sx={{
+                        color: "rgba(0, 0, 0, 0.7)",
+                        fontFamily: "Roboto, sans-serif",
+                      }}
+                    >
+                      This is a media card. You can use this section to describe
+                      the content.
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
+                  <CardActions sx={{ justifyContent: "flex-end" }}>
+                    <Button size="small">More Details</Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -76,7 +94,7 @@ export default function Home() {
         </Container>
       </main>
       {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+      <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           Footer
         </Typography>

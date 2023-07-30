@@ -3,11 +3,11 @@ import CameraIcon from '@mui/icons-material/PhotoCamera';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import SearchIcon from '@mui/icons-material/Search';
-import { Button, FormControl, IconButton, InputAdornment, InputLabel, Menu, MenuItem, OutlinedInput, TextField, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Divider, Drawer, FormControl, IconButton, InputAdornment, InputLabel, List, ListItem, ListItemText, Menu, MenuItem, OutlinedInput, TextField, useMediaQuery, useTheme } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import React, { useState } from 'react';
 
 
 export default function Header() {
@@ -18,9 +18,27 @@ export default function Header() {
   const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+  const handleDrawerToggle = () => {
+    handleMenuClose();
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+  const drawerContent = (
+    <List>
+      <ListItem button>
+        <ListItemText primary="Category 1" />
+      </ListItem>
+      <ListItem button>
+        <ListItemText primary="Category 2" />
+      </ListItem>
+      <ListItem button>
+        <ListItemText primary="Category 3" />
+      </ListItem>
+    </List>
+  );
   return (
 
     <AppBar position="relative" sx={{ backgroundColor: '#f5f5f5', color: 'black' }}>
@@ -37,9 +55,9 @@ export default function Header() {
       )}
         <TextField
           id="search"
-          label="Search"
           variant="outlined"
           size="small"
+          placeholder="search"
           sx={{ marginLeft: '2em', marginRight: '3em', width: isMdScreen ? '40%' : 'auto' }}
           InputProps={{
             startAdornment: <IconButton><SearchIcon /></IconButton>,
@@ -50,7 +68,7 @@ export default function Header() {
           <IconButton color="inherit">
             <Typography variant="body1">About</Typography>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={handleDrawerToggle}>
             <Typography variant="body1">Categories</Typography>
           </IconButton>
           <IconButton color="inherit">
@@ -78,12 +96,20 @@ export default function Header() {
         }}
       >
         <MenuItem onClick={handleMenuClose}>About</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Categories</MenuItem>
+        <MenuItem onClick={handleDrawerToggle}>Categories</MenuItem>
         <MenuItem onClick={handleMenuClose}>Contact Us</MenuItem>
       </Menu>
     </div>
           )}
       </Toolbar>
+      
+      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerToggle} PaperProps={{
+            sx: { width: isMdScreen ? '20%' : '40%'},
+          }}>
+      <Typography variant="h6" sx={{ textAlign: 'center', my: 2 }}>Categories</Typography>
+      <Divider />
+        {drawerContent}
+      </Drawer>
     </AppBar>
   )
 }
