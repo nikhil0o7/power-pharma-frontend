@@ -14,6 +14,7 @@ import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "./Components/Header";
 import Welcome from "./Components/Welcome";
+import GridWithPagination from "./Components/HomeGrid";
 
 function Copyright() {
   return (
@@ -28,12 +29,34 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Home() {
+  const images = [
+    {
+      label: "San Francisco – Oakland Bay Bridge, United States",
+      imgPath:
+        "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
+    },
+    {
+      label: "Bird",
+      imgPath:
+        "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+    },
+    {
+      label: "Bali, Indonesia",
+      imgPath:
+        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
+    },
+    {
+      label: "Goč, Serbia",
+      imgPath:
+        "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
+    },
+  ];
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -43,54 +66,7 @@ export default function Home() {
         <Welcome />
         <Container sx={{ py: 8 }} maxWidth="lg">
           {/* End hero unit */}
-          <Grid container spacing={3}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: "56.25%",
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      sx={{
-                        fontWeight: "bold",
-                        fontFamily: "Roboto, sans-serif",
-                      }}
-                    >
-                      Heading
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: "rgba(0, 0, 0, 0.7)",
-                        fontFamily: "Roboto, sans-serif",
-                      }}
-                    >
-                      This is a media card. You can use this section to describe
-                      the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions sx={{ justifyContent: "flex-end" }}>
-                    <Button size="small">More Details</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+          <GridWithPagination />
         </Container>
       </main>
       {/* Footer */}
